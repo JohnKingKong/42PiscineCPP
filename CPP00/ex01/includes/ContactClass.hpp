@@ -6,11 +6,12 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:16:19 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/16 12:04:09 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/16 17:30:43 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef CONTACTCLASS_HPP
+# define CONTACTCLASS_HPP
 #include <string.h>
 #include <iostream>
 
@@ -19,7 +20,7 @@ class Contact
 	public:
 
 		//	Constructor and destructor
-		Contact(std::string FN, std::string LN, std::string NN, std::string PN, std::string DS);
+		Contact(std::string info[5]);
 		~Contact(void);
 
 		//	GetFunction
@@ -43,3 +44,4 @@ class Contact
 		std::string		_PhoneNumber;
 		std::string		_DarkSecret;
 };
+#endif

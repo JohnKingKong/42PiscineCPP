@@ -6,28 +6,26 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:17:40 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/16 14:00:40 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/16 17:31:23 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ContactClass.hpp"
 
 //	Constructor
-Contact::Contact(std::string FN, std::string LN, std::string NN, std::string PN, std::string DS)
+Contact::Contact(std::string info[5])
 {
-	Contact::setFirstName(FN);
-	Contact::setLastName(LN);
-	Contact::setNickName(NN);
-	Contact::setPhoneNumber(PN);
-	Contact::setDarkSecret(DS);
+	Contact::setFirstName(info[0]);
+	Contact::setLastName(info[1]);
+	Contact::setNickName(info[2]);
+	Contact::setPhoneNumber(info[3]);
+	Contact::setDarkSecret(info[4]);
 	return;
 }
 
 //	Deconstructor
 Contact::~Contact(void)
 {
-	std::cout << "Contact : " << this->_FirstName << ' ' << this->_LastName;
-	std::cout << ' ' << "Destroyed" << std::endl;
 	return ;
 }
 

@@ -6,12 +6,15 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:16:24 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/16 14:23:07 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/16 17:36:24 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef PHONEBOOKCLASS_HPP
+# define PHONEBOOKCLASSE_HPP
+
 #include "ContactClass.hpp"
+#include <iostream>
 
 class PhoneBookClass
 {
@@ -20,13 +23,17 @@ class PhoneBookClass
 		PhoneBookClass(void);
 		~PhoneBookClass(void);
 
-		static int	getNbInst(void);
-		static int	getIndex(void);
-		void		addContact(Contact *cont);
+		static int		getNbInst(void);
+		static int		getIndex(void);
+		void			addContact(Contact *cont);
+		void			showRepertoire(void);
 
 	private:
 
-		Contact	_reperoire[8];
+		Contact			*_repertoire[8];
 		static size_t	_nbInst;
 		static int		_index;
+
+		void			setRepertoire(Contact *cont, int index);
 };
+#endif
