@@ -6,11 +6,12 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/16 12:05:28 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/16 14:05:32 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "ContactClass.hpp"
+#include "PhoneBookClass.hpp"
 
 int	main(void)
 {
