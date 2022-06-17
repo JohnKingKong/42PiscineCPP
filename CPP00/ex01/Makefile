@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/06/16 12:10:36 by aguay            ###   ########.fr        #
+#    Updated: 2022/06/17 09:04:36 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= MyAwsomePhoneBook
+NAME 			= ex01
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++

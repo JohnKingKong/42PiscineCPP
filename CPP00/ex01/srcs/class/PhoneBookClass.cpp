@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:17:36 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/17 08:06:20 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/17 08:52:28 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ PhoneBookClass::~PhoneBookClass(void)
 	return ;
 }
 
-int	PhoneBookClass::getNbInst(void) const
+int	PhoneBookClass::getNbInst(void)
 {
 	return ((int)PhoneBookClass::_nbInst);
 }
 
-int	PhoneBookClass::getIndex(void) const
+int	PhoneBookClass::getIndex(void)
 {
 	return (PhoneBookClass::_index);
 }
