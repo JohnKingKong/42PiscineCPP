@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:17:36 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/16 18:14:53 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/17 08:06:20 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,15 @@ PhoneBookClass::PhoneBookClass(void)
 
 PhoneBookClass::~PhoneBookClass(void)
 {
-	for (int i = 0; i < PhoneBookClass::getNbInst(); i++)
-	{
-		delete _repertoire[i];
-	}
 	return ;
 }
 
-int	PhoneBookClass::getNbInst(void)
+int	PhoneBookClass::getNbInst(void) const
 {
 	return ((int)PhoneBookClass::_nbInst);
 }
 
-int	PhoneBookClass::getIndex(void)
+int	PhoneBookClass::getIndex(void) const
 {
 	return (PhoneBookClass::_index);
 }
@@ -98,6 +94,16 @@ void	PhoneBookClass::showRepertoire(void)
 		else
 			std::cout << "|                                 |\n";
 	}
+}
+
+void	PhoneBookClass::getContact(int index) const
+{
+	std::cout << "Fist Name :\t\t" << _repertoire[index]->getFirstName() << std::endl;
+	std::cout << "Last Name :\t\t" << _repertoire[index]->getLastName() << std::endl;
+	std::cout << "Nick Name :\t\t" << _repertoire[index]->getNickName() << std::endl;
+	std::cout << "Phone Number :\t\t" << _repertoire[index]->getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret :\t" << _repertoire[index]->getDarkSecret() << std::endl;
+	std::cout << std::endl;
 }
 
 size_t	PhoneBookClass::_nbInst = 0;

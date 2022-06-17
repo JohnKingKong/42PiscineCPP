@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:16:24 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/16 17:36:24 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/17 07:39:22 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ class PhoneBookClass
 		PhoneBookClass(void);
 		~PhoneBookClass(void);
 
-		static int		getNbInst(void);
-		static int		getIndex(void);
+		int				getNbInst(void) const;
+		int				getIndex(void) const;
+		void			getContact(int index) const;
 		void			addContact(Contact *cont);
 		void			showRepertoire(void);
+
 
 	private:
 
