@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   classHumanB.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/25 10:50:16 by aguay            ###   ########.fr       */
+/*   Created: 2022/06/25 12:26:35 by aguay             #+#    #+#             */
+/*   Updated: 2022/06/25 13:02:52 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassZombie.hpp"
+#ifndef CLASSHUMANB_HPP
+# define CLASSHUMANB_HPP
+
+#include <string>
 #include <iostream>
+#include "classWeapon.hpp"
 
-Zombie* zombieHorde(int N, std::string name);
-
-int	main(void)
+class HumanB
 {
-	Zombie	*ptr;
+	public:
 
-	ptr = zombieHorde(3, "Philipe");
-	for (int i = 0; i < 3; i++)
-		ptr[i].announce();
-	delete [] ptr;
-	return (0);
-}
+		HumanB(std::string name);
+		~HumanB(void);
+
+		void		attack(void);
+		void		setWeapon(Weapon& arme);
+		std::string	getName(void);
+		Weapon		getWeapon(void);
+
+	private:
+
+		std::string	name;
+		Weapon		*arme;
+};
+
+#endif

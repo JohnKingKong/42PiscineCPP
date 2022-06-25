@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   classHumanA.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/25 10:50:16 by aguay            ###   ########.fr       */
+/*   Created: 2022/06/25 12:12:12 by aguay             #+#    #+#             */
+/*   Updated: 2022/06/25 12:54:02 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassZombie.hpp"
+#include "classHumanA.hpp"
 #include <iostream>
 
-Zombie* zombieHorde(int N, std::string name);
-
-int	main(void)
+HumanA::HumanA(std::string name, Weapon& gun) : arme(gun), name(name)
 {
-	Zombie	*ptr;
+	return;
+}
 
-	ptr = zombieHorde(3, "Philipe");
-	for (int i = 0; i < 3; i++)
-		ptr[i].announce();
-	delete [] ptr;
-	return (0);
+HumanA::~HumanA(void)
+{
+	return ;
+}
+
+void	HumanA::attack(void)
+{
+	std::cout << this->name << " attack with their " << this->arme.getType() << std::endl;
+	return ;
+}
+
+std::string	HumanA::getName(void)
+{
+	return (this->name);
+}
+
+Weapon	HumanA::getWeapon(void)
+{
+	return (this->arme);
 }
