@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/14 08:10:50 by anthony          ###   ########.fr       */
+/*   Updated: 2022/06/26 13:32:42 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "classHarl.hpp"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	printf("Hello World!\n");
+	if (argc != 2)
+		{std::cout << "Invalid number of arguments!!! I WANT TO SEE YOUR MANAGER!" << std::endl; return (1);}
+	
+	Harl	Karen;
+	Karen.filter(argv[1]);
 	return (0);
 }
