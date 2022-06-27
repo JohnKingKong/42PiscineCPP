@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   classFixed.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/27 11:27:14 by aguay            ###   ########.fr       */
+/*   Created: 2022/06/27 10:06:06 by aguay             #+#    #+#             */
+/*   Updated: 2022/06/27 11:22:08 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "classFixed.hpp"
+#ifndef CLASSFIXED_HPP
+# define CLASSFIXED_HPP
+
 #include <iostream>
 
-int	main(void)
+class Fixed
 {
-	
-}
+	public:
+
+		Fixed(void);
+		Fixed(Fixed const & src);
+		~Fixed(void);
+
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+		Fixed &	operator=(Fixed const & rhs);
+		
+	private:
+
+		int					_rawBits;
+		static int const	bitFract = 8;
+};
+
+#endif
