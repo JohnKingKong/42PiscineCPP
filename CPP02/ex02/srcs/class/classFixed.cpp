@@ -6,31 +6,21 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:07:28 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/28 13:49:55 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/28 15:59:00 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classFixed.hpp"
 #include <cmath>
 
-Fixed::Fixed(void)
-{
-	std::cout << "Default constructor called" << std::endl;
-	Fixed::setRawBits(0);
-	return ;
-}
+//	Contructor
 
-Fixed::Fixed(Fixed const & src)
-{
-	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+Fixed::Fixed(void) : _rawBits(0){}
 
-	return ;
-}
+Fixed::Fixed(Fixed const & src){*this = src;}
 
 Fixed::Fixed(int const entier)
 {
-	std::cout << "Int constructor called" << std::endl;
 	setRawBits(entier << bitFract);
 }
 
@@ -38,97 +28,75 @@ Fixed::Fixed(float const nbVirgule)
 {
 	//	roundf(Float * 256)
 	setRawBits((int)roundf(nbVirgule * (float)(1 << bitFract)));
-	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::~Fixed(void)
-{
-	std::cout << "Destructor called" << std::endl;
-	return ;
-}
+//	Destructor
+Fixed::~Fixed(void){}
+
+//	Assignation operator overload
 
 Fixed & Fixed::operator=(Fixed const & rhs)
 {
-	std::cout << "Operator overload assignation called" << std::endl;
-	Fixed::setRawBits(rhs.getRawBits());
+	if (&rhs != this)
+		_rawBits = rhs.getRawBits();
 
 	return *this;
 }
 
+//	Arithmetic Operator overload
 Fixed	Fixed::operator+(Fixed const & rhs) const
 {
-	std::cout << "Operator overload addition called with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
-
 	return (Fixed(Fixed::toFloat() + rhs.toFloat()));
 }
 
 Fixed	Fixed::operator-(Fixed const &rhs) const
 {
-	std::cout << "Operator overload substraction called with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
-
 	return (Fixed(Fixed::toFloat() - rhs.toFloat()));
 }
 
 Fixed	Fixed::operator*(Fixed const &rhs) const
 {
-	std::cout << "Operator overload multiplication called with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
-
 	return (Fixed(Fixed::toFloat() * rhs.toFloat()));
 }
 
 Fixed	Fixed::operator/(Fixed const &rhs) const
 {
-	std::cout << "Operator overload division called with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
-
 	return (Fixed(Fixed::toFloat() / rhs.toFloat()));
 }
 
+//	Boolean Algebra Operator overload
+
 bool	Fixed::operator>(Fixed const &rhs) const
 {
-	std::cout << "Operator overload boolean algebra > with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
 	return (Fixed::toFloat() > rhs.toFloat());
 }
 
 bool	Fixed::operator>=(Fixed const &rhs) const
 {
-	std::cout << "Operator overload boolean algebra >= with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
 	return (Fixed::toFloat() >= rhs.toFloat());
 }
 
 bool	Fixed::operator<(Fixed const &rhs) const
 {
-	std::cout << "Operator overload boolean algebra < with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
 	return (Fixed::toFloat() < rhs.toFloat());
 }
 
 bool	Fixed::operator<=(Fixed const &rhs) const
 {
-	std::cout << "Operator overload boolean algebra <= with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
 	return (Fixed::toFloat() <= rhs.toFloat());
 }
 
 bool	Fixed::operator==(Fixed const &rhs) const
 {
-	std::cout << "Operator overload boolean algebra == with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
 	return (Fixed::toFloat() == rhs.toFloat());
 }
 
 bool	Fixed::operator!=(Fixed const &rhs) const
 {
-	std::cout << "Operator overload boolean algebra != with ";
-	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
 	return (Fixed::toFloat() != rhs.toFloat());
 }
 
+//	Member fonctions
 void	Fixed::setRawBits(int const raw)
 {
 	this->_rawBits = raw;
@@ -150,21 +118,17 @@ int	Fixed::toInt(void) const
 	return (Fixed::getRawBits() >> bitFract);
 }
 
-std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
-{
-	o << rhs.toFloat();
-	return (o);
-}
+//	Fonction non member
 
 Fixed &	Fixed::min(Fixed const &fixA, Fixed const &fixB)
 {
-	Fixed	refRetour;
+	const Fixed	*ptr;
 
 	if (fixA < fixB)
-		refRetour = fixA;
+		ptr = &fixA;
 	else
-		refRetour = fixB;
-	return (refRetour);
+		ptr = &fixB;
+	return (Fixed &)(*ptr);
 }
 
 Fixed &	Fixed::min(Fixed &fixA, Fixed &fixB)
@@ -177,13 +141,13 @@ Fixed &	Fixed::min(Fixed &fixA, Fixed &fixB)
 
 Fixed &	Fixed::max(Fixed const &fixA, Fixed const &fixB)
 {
-	Fixed	refRetour;
+	const Fixed	*ptr;
 
 	if (fixA > fixB)
-		refRetour = fixA;
+		ptr = &fixA;
 	else
-		refRetour = fixB;
-	return (refRetour);
+		ptr = &fixB;
+	return (Fixed &)(*ptr);
 }
 
 Fixed &	Fixed::max(Fixed &fixA, Fixed &fixB)
@@ -194,22 +158,42 @@ Fixed &	Fixed::max(Fixed &fixA, Fixed &fixB)
 		return (fixB);
 }
 
+//	Prefix, postfix incrementation/decrementation
+
 Fixed &	Fixed::operator++()
 {
-	
+	++_rawBits;
+
+	return (*this);
 }
 
-Fixed &	Fixed::operator++(int)
+Fixed	Fixed::operator++(int)
 {
-	
+	Fixed	temp(*this);
+
+	this->_rawBits++;
+
+	return (temp);
 }
 
 Fixed &	Fixed::operator--()
 {
-	
+	--_rawBits;
+
+	return (*this);
 }
 
-Fixed &	Fixed::operator--()
+Fixed	Fixed::operator--(int)
 {
-	
+	Fixed	temp(*this);
+
+	this->_rawBits--;
+
+	return (temp);
+}
+
+std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
+{
+	o << rhs.toFloat();
+	return (o);
 }

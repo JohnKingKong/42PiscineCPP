@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:06:06 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/28 13:48:40 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/28 15:58:06 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Fixed
 		Fixed(float const nbVirgule);
 		~Fixed(void);
 
+		//	Member fonctions
 		int					getRawBits(void) const;
 		void				setRawBits(int const raw);
 		float				toFloat(void) const;
@@ -48,9 +49,9 @@ class Fixed
 		bool				operator!=(Fixed const &rhs) const;
 
 		//	Prefix, postfix incrementation/decrementation
-		Fixed &				operator++(int);	// postfix
+		Fixed				operator++(int);	// postfix
 		Fixed &				operator++();		// prefix
-		Fixed &				operator--(int);	// postfix
+		Fixed				operator--(int);	// postfix
 		Fixed &				operator--();		// prefix
 
 		//	Fonction non member
