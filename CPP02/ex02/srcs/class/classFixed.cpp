@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:07:28 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/28 10:07:16 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/28 10:41:39 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,38 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 	Fixed::setRawBits(rhs.getRawBits());
 
 	return *this;
+}
+
+Fixed	Fixed::operator+(Fixed const & rhs) const
+{
+	std::cout << "Operator overload addition called with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+
+	return (Fixed(Fixed::toFloat() + rhs.toFloat()));
+}
+
+Fixed	Fixed::operator-(Fixed const &rhs) const
+{
+	std::cout << "Operator overload substraction called with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+
+	return (Fixed(Fixed::toFloat() - rhs.toFloat()));
+}
+
+Fixed	Fixed::operator*(Fixed const &rhs) const
+{
+	std::cout << "Operator overload multiplication called with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+
+	return (Fixed(Fixed::toFloat() * rhs.toFloat()));
+}
+
+Fixed	Fixed::operator/(Fixed const &rhs) const
+{
+	std::cout << "Operator overload division called with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+
+	return (Fixed(Fixed::toFloat() / rhs.toFloat()));
 }
 
 void	Fixed::setRawBits(int const raw)

@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/14 08:10:50 by anthony          ###   ########.fr       */
+/*   Updated: 2022/06/28 10:42:25 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "classFixed.hpp"
+#include <iostream>
 
 int	main(void)
 {
-	printf("Hello World!\n");
-	return (0);
+	Fixed	x((float)1);
+	Fixed	y((float)4);
+
+	std::cout << x / y << std::endl;
 }

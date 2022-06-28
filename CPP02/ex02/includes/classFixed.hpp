@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:06:06 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/28 10:02:19 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/28 10:45:17 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,19 @@ class Fixed
 		void				setRawBits(int const raw);
 		float				toFloat(void) const;
 		int					toInt(void) const;
+
+		//	Assignation operator overload
 		Fixed &				operator=(Fixed const & rhs);
+
+		//	Arithmetic Operator overload
+		Fixed				operator+(Fixed const & rhs) const;
+		Fixed				operator-(Fixed const & rhs) const;
+		Fixed				operator*(Fixed const & rhs) const;
+		Fixed				operator/(Fixed const & rhs) const;
+
+		//	Boolean Algebra Operator overload
 		
+
 	private:
 
 		int					_rawBits;
