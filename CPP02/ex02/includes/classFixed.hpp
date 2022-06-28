@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:06:06 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/28 10:45:17 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/28 13:48:40 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,24 @@ class Fixed
 		Fixed				operator/(Fixed const & rhs) const;
 
 		//	Boolean Algebra Operator overload
-		
+		bool				operator>(Fixed const &rhs) const;
+		bool				operator>=(Fixed const &rhs) const;
+		bool				operator<(Fixed const &rhs) const;
+		bool				operator<=(Fixed const &rhs) const;
+		bool				operator==(Fixed const &rhs) const;
+		bool				operator!=(Fixed const &rhs) const;
+
+		//	Prefix, postfix incrementation/decrementation
+		Fixed &				operator++(int);	// postfix
+		Fixed &				operator++();		// prefix
+		Fixed &				operator--(int);	// postfix
+		Fixed &				operator--();		// prefix
+
+		//	Fonction non member
+		static Fixed &		min(Fixed const &fixA, Fixed const &fixB);
+		static Fixed &		min(Fixed &fixA, Fixed &fixB);
+		static Fixed &		max(Fixed const &fixA, Fixed const &fixB);
+		static Fixed &		max(Fixed &fixA, Fixed &fixB);
 
 	private:
 

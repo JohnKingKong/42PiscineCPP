@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:07:28 by aguay             #+#    #+#             */
-/*   Updated: 2022/06/28 10:41:39 by aguay            ###   ########.fr       */
+/*   Updated: 2022/06/28 13:49:55 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,48 @@ Fixed	Fixed::operator/(Fixed const &rhs) const
 	return (Fixed(Fixed::toFloat() / rhs.toFloat()));
 }
 
+bool	Fixed::operator>(Fixed const &rhs) const
+{
+	std::cout << "Operator overload boolean algebra > with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+	return (Fixed::toFloat() > rhs.toFloat());
+}
+
+bool	Fixed::operator>=(Fixed const &rhs) const
+{
+	std::cout << "Operator overload boolean algebra >= with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+	return (Fixed::toFloat() >= rhs.toFloat());
+}
+
+bool	Fixed::operator<(Fixed const &rhs) const
+{
+	std::cout << "Operator overload boolean algebra < with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+	return (Fixed::toFloat() < rhs.toFloat());
+}
+
+bool	Fixed::operator<=(Fixed const &rhs) const
+{
+	std::cout << "Operator overload boolean algebra <= with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+	return (Fixed::toFloat() <= rhs.toFloat());
+}
+
+bool	Fixed::operator==(Fixed const &rhs) const
+{
+	std::cout << "Operator overload boolean algebra == with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+	return (Fixed::toFloat() == rhs.toFloat());
+}
+
+bool	Fixed::operator!=(Fixed const &rhs) const
+{
+	std::cout << "Operator overload boolean algebra != with ";
+	std::cout << Fixed::toFloat() << " and " << rhs.toFloat() << std::endl;
+	return (Fixed::toFloat() != rhs.toFloat());
+}
+
 void	Fixed::setRawBits(int const raw)
 {
 	this->_rawBits = raw;
@@ -112,4 +154,62 @@ std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
 {
 	o << rhs.toFloat();
 	return (o);
+}
+
+Fixed &	Fixed::min(Fixed const &fixA, Fixed const &fixB)
+{
+	Fixed	refRetour;
+
+	if (fixA < fixB)
+		refRetour = fixA;
+	else
+		refRetour = fixB;
+	return (refRetour);
+}
+
+Fixed &	Fixed::min(Fixed &fixA, Fixed &fixB)
+{
+	if (fixA < fixB)
+		return (fixA);
+	else
+		return (fixB);
+}
+
+Fixed &	Fixed::max(Fixed const &fixA, Fixed const &fixB)
+{
+	Fixed	refRetour;
+
+	if (fixA > fixB)
+		refRetour = fixA;
+	else
+		refRetour = fixB;
+	return (refRetour);
+}
+
+Fixed &	Fixed::max(Fixed &fixA, Fixed &fixB)
+{
+	if (fixA > fixB)
+		return (fixA);
+	else
+		return (fixB);
+}
+
+Fixed &	Fixed::operator++()
+{
+	
+}
+
+Fixed &	Fixed::operator++(int)
+{
+	
+}
+
+Fixed &	Fixed::operator--()
+{
+	
+}
+
+Fixed &	Fixed::operator--()
+{
+	
 }
