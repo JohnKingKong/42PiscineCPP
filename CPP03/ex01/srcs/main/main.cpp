@@ -6,32 +6,21 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/04 09:56:55 by aguay            ###   ########.fr       */
+/*   Updated: 2022/07/04 14:53:26 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classClapTrap.hpp"
+#include "classScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	robot = ClapTrap("Roboto");
+	ScavTrap	robot0("roberto");
+	ScavTrap	robot1;
+	ScavTrap	robot2(robot0);
 
-	robot.takeDamage(5);
-	robot.attack("bob");
-	robot.beRepaired(60);
-	robot.takeDamage(10);
-	robot.attack("bob");
-	robot.takeDamage(10);
-	robot.attack("bob");
-	robot.takeDamage(10);
-	robot.attack("bob");
-	robot.takeDamage(10);
-	robot.attack("bob");
-	robot.takeDamage(10);
-	robot.attack("bob");
-	robot.takeDamage(10);
-	robot.attack("bob");
-	robot.takeDamage(10);
-	robot.attack("bob");
+	robot0.guardGate();
+	robot1.guardGate();
+	robot2.guardGate();
 	return (0);
 }

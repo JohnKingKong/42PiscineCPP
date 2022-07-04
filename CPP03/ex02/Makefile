@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/06/19 10:11:14 by aguay            ###   ########.fr        #
+#    Updated: 2022/07/04 15:36:27 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= helloworld
+NAME 			= ex02
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
@@ -62,9 +62,12 @@ MAIN_FILES		=						\
 					main.cpp			\
 
 CLASS_FILES		=						\
+					classClapTrap.cpp	\
+					classScavTrap.cpp	\
 
 HEADERS_FILES	=						\
-					main.hpp			\
+					classClapTrap.hpp	\
+					classScavTrap.hpp	\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
