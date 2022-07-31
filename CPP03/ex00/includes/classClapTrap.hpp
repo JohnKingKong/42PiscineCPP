@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:23:12 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/04 09:46:09 by aguay            ###   ########.fr       */
+/*   Updated: 2022/07/31 12:28:12 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,28 @@ class ClapTrap
 {
 	public:
 
+		//	Contructor's
 		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const & rhs);
+
+		//	Destructor
 		~ClapTrap(void);
 
+		//	Operator overload
 		ClapTrap &		operator=(ClapTrap const & rhs);
 
-		void			attack(const std::string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
+		//	Getter method's
 		std::string		getName(void) const;
 		unsigned int	getHitPoint(void) const;
 		unsigned int	getEnergyPoint(void) const;
 		unsigned int	getAttackDamage(void) const;
+
+		//	Object method's
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+
 
 	private:
 

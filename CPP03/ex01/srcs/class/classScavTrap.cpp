@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 11:21:35 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/04 14:50:36 by aguay            ###   ########.fr       */
+/*   Updated: 2022/07/31 13:16:03 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //	Constructor's
 
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 	this->setName("undifined");
@@ -23,16 +23,15 @@ ScavTrap::ScavTrap(void)
 	this->setHitPoint(100);
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap constructor called" << std::endl;
-	this->setName(name);
 	this->setAttackDamage(20);
 	this->setEnergyPoint(50);
 	this->setHitPoint(100);
 }
 
-ScavTrap::ScavTrap(ScavTrap const & rhs)
+ScavTrap::ScavTrap(ScavTrap const & rhs) : ClapTrap(rhs.getName())
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = rhs;
@@ -52,14 +51,12 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 }
 
 //	Destructor
-
 ScavTrap::~ScavTrap(void)
 {
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 //	Methodes
-
 void	ScavTrap::guardGate(void) const
 {
 	std::cout << this->getName() << " entered door guarding mode" << std::endl;

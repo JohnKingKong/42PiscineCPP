@@ -6,11 +6,13 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:23:42 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/04 09:55:55 by aguay            ###   ########.fr       */
+/*   Updated: 2022/07/31 12:29:26 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classClapTrap.hpp"
+
+//	Constructor's
 
 ClapTrap::ClapTrap(void) : _name("undefined"), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
@@ -28,6 +30,15 @@ ClapTrap::ClapTrap(ClapTrap const & rhs)
 	*this = rhs;
 }
 
+//	Destructor
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+//	Operator overload
+
+//	If the reference != this, change all variable's to rhs variable's
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 {
 	std::cout << "Operator overload assignation called" << std::endl;
@@ -41,10 +52,7 @@ ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 	return (*this);
 }
 
-ClapTrap::~ClapTrap(void)
-{
-	std::cout << "Destructor called" << std::endl;
-}
+//	Object method's
 
 void	ClapTrap::attack(const std::string& target)
 {
