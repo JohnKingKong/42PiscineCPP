@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/07/04 15:36:27 by aguay            ###   ########.fr        #
+#    Updated: 2022/08/01 08:11:50 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,12 @@ MAIN_FILES		=						\
 CLASS_FILES		=						\
 					classClapTrap.cpp	\
 					classScavTrap.cpp	\
+					classFragTrap.cpp	\
 
 HEADERS_FILES	=						\
 					classClapTrap.hpp	\
 					classScavTrap.hpp	\
+					classFragTrap.hpp	\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
