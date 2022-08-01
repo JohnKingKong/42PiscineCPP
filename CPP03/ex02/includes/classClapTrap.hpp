@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:23:12 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/04 14:35:16 by aguay            ###   ########.fr       */
+/*   Updated: 2022/07/31 13:06:19 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ class ClapTrap
 		void			setEnergyPoint(unsigned int amount);
 		void			setAttackDamage(unsigned int amount);
 
-	private:
-
+	protected:
 		std::string		_name;
 		unsigned int	_hitPoint;
 		unsigned int	_energyPoint;
