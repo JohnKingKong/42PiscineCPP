@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   classFixed.hpp                                     :+:      :+:    :+:   */
+/*   classCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 10:06:06 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 07:47:39 by aguay            ###   ########.fr       */
+/*   Created: 2022/08/03 08:06:31 by aguay             #+#    #+#             */
+/*   Updated: 2022/08/03 09:17:38 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASSFIXED_HPP
-# define CLASSFIXED_HPP
 
-#include <iostream>
+#pragma once
+#include "classAnimal.hpp"
 
-class Fixed
+class Cat : public Animal
 {
 	public:
 
-		Fixed(void);
-		Fixed(Fixed const & src);
-		~Fixed(void);
-
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-		Fixed &	operator=(Fixed const & rhs);
+		//	Constructor's
+		Cat(void);
+		Cat(Cat const & rhs);
 		
-	private:
+		//	Destructor's
+		virtual ~Cat(void);
 
-		int					_rawBits;
-		static int const	bitFract = 8;
+		//	Operator overload
+		Cat &	operator=(Cat const & rhs);
+
+		//	Getter
+		virtual std::string	getType(void) const;
+		
+		//	Methodes
+		virtual void	makeSound(void) const;
+	
+	protected:
+	
+		std::string	_type;
 };
-
-#endif

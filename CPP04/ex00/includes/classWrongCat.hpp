@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   classFixed.hpp                                     :+:      :+:    :+:   */
+/*   classWrongCat.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 10:06:06 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 07:47:39 by aguay            ###   ########.fr       */
+/*   Created: 2022/08/03 10:39:04 by aguay             #+#    #+#             */
+/*   Updated: 2022/08/03 10:40:23 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASSFIXED_HPP
-# define CLASSFIXED_HPP
+#pragma once
+#include "classWrongAnimal.hpp"
 
-#include <iostream>
-
-class Fixed
+class WrongCat : public WrongAnimal
 {
 	public:
 
-		Fixed(void);
-		Fixed(Fixed const & src);
-		~Fixed(void);
-
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-		Fixed &	operator=(Fixed const & rhs);
+		//	Constructor's
+		WrongCat(void);
+		WrongCat(WrongCat const & rhs);
 		
-	private:
+		//	Destructor's
+		~WrongCat(void);
 
-		int					_rawBits;
-		static int const	bitFract = 8;
+		//	Operator overload
+		WrongCat &	operator=(WrongCat const & rhs);
+
+		//	Getter
+		std::string	getType(void) const;
+		
+		//	Methodes
+		void	makeSound(void) const;
+	
+	protected:
+	
+		std::string	_type;
 };
-
-#endif
