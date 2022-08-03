@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   classCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
+/*   Created: 2022/08/03 08:06:31 by aguay             #+#    #+#             */
 /*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include "classAnimal.hpp"
-#include "classCat.hpp"
-#include "classDog.hpp"
+#include "classBrain.hpp"
 
-int	main(void)
+class Cat : public AAnimal
 {
-	AAnimal	*tableau[10];
-
-	std::cout << "\n\033[32mTest create 5 dog and 5 cat\033[0m\n" << std::endl;
-	for (int i = 0; i < 10; i++)
-	{
-		if (i % 2 == 0)
-			tableau[i] = new Dog;
-		else
-			tableau[i] = new Cat;
-		std::cout << "Creation " << i << " is a " << tableau[i]->getType() << std::endl;
-	}
+	public:
+		Cat(void);
+		Cat(Cat const & rhs);
 	
-	std::cout << "\n\n\033[32mTest done, now let's test destructor's\033[0m\n" << std::endl;
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << tableau[i]->getType() << ": ";
-		tableau[i]->makeSound();
-		delete tableau[i];
-	}
-	return 0;
-}
+		virtual				~Cat(void);
+		Cat &				operator=(Cat const & rhs);
+		virtual std::string	getType(void) const;
+		virtual void		makeSound(void) const;
+		virtual void		get_idea(size_t index);
+	
+	private:
+		Brain	*brain;
+};

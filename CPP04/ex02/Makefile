@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/06/19 10:11:14 by aguay            ###   ########.fr        #
+#    Updated: 2022/08/03 14:50:12 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= helloworld
+NAME 			= ex01
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
@@ -56,16 +56,22 @@ MAIN_DIR		= $(SRCS_DIR)main
 CLASS_DIR		= $(SRCS_DIR)class
 
 ## ----- FILES ----- ##
-SRCS_FILES		=						\
+SRCS_FILES		=							\
 
-MAIN_FILES		=						\
-					main.cpp			\
+MAIN_FILES		=							\
+					main.cpp				\
 
-CLASS_FILES		=						\
+CLASS_FILES		=							\
+					classAnimal.cpp			\
+					classCat.cpp			\
+					classDog.cpp			\
+					classBrain.cpp			\
 
-HEADERS_FILES	=						\
-					main.hpp			\
-
+HEADERS_FILES	=							\
+					classAnimal.hpp			\
+					classCat.hpp			\
+					classDog.hpp			\
+					classBrain.hpp			\
 
 ## ----- ADDPREFIX TO FILES ----- ##
 

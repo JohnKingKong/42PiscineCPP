@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   classCat.hpp                                       :+:      :+:    :+:   */
+/*   classBrain.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 08:06:31 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
+/*   Created: 2022/08/03 13:48:49 by aguay             #+#    #+#             */
+/*   Updated: 2022/08/03 14:40:34 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "classAnimal.hpp"
+#include <string.h>
+#include <iostream>
 
-class Cat : public AAnimal
+class	Brain
 {
 	public:
 
-		//	Constructor's
-		Cat(void);
-		Cat(Cat const & rhs);
-		
-		//	Destructor's
-		virtual ~Cat(void);
+		Brain(void);
+		Brain(Brain const &rhs);
+		~Brain(void);
+		Brain &	operator=(Brain const &rhs);
 
-		//	Operator overload
-		Cat &	operator=(Cat const & rhs);
+		std::string	get_idea(size_t index) const;
+		void		set_idea(size_t index, std::string lidea);
 
-		//	Getter
-		virtual std::string	getType(void) const;
-		
-		//	Methodes
-		virtual void	makeSound(void) const;
+	private:
+		std::string	ideas[100];
+		void		init_ideas(void);
 };

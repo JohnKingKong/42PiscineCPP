@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 08:49:32 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 09:17:44 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "classAnimal.hpp"
 
-class Dog : public Animal
+class Dog : public AAnimal
 {
 	public:
 
@@ -33,8 +33,4 @@ class Dog : public Animal
 		
 		//	Methodes
 		virtual void	makeSound(void) const;
-	
-	protected:
-	
-		std::string	_type;
 };

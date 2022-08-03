@@ -6,19 +6,19 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 08:58:34 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/03 14:56:10 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classDog.hpp"
 
-Dog::Dog(void) : AAnimal("Dog")
+Dog::Dog(void) : Animal(), brain(new Brain())
 {
 	std::cout << "Default Dog constructor called" << std::endl;
 	this->_type = "Dog";
 }
 
-Dog::Dog(Dog const & rhs) : AAnimal("Dog")
+Dog::Dog(Dog const & rhs) : Animal(), brain(new Brain())
 {
 	std::cout << "Copy Dog constructor called" << std::endl;
 	*this = rhs;
@@ -26,13 +26,18 @@ Dog::Dog(Dog const & rhs) : AAnimal("Dog")
 
 Dog::~Dog(void)
 {
+	delete this->brain;
 	std::cout << "Default Dog destructor" << std::endl;
 }
 
 Dog &	Dog::operator=(Dog const & rhs)
 {
 	std::cout << "Dog operator overload = called" << std::endl;
-	this->_type = rhs._type;
+	if (this != & rhs)
+	{
+		this->_type = rhs._type;
+		this->brain = rhs.brain;
+	}
 	return (*this);
 }
 
@@ -44,4 +49,9 @@ void	Dog::makeSound(void) const
 std::string	Dog::getType(void) const
 {
 	return (this->_type);
+}
+
+void	Dog::get_idea(size_t index)
+{
+	std::cout << this->brain->get_idea(index) << std::endl;
 }

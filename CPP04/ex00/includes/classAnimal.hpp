@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 07:41:10 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 09:17:21 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 #include <iostream>
 #include <string.h>
 
-class Animal
+class AAnimal
 {
 	public:
 
 		//	Constructor's
-		Animal(void);
-		Animal(Animal const & rhs);
+		AAnimal(void);
+		AAnimal(AAnimal const & rhs);
 
 		//	Destructor's
-		virtual ~Animal(void);
+		virtual ~AAnimal(void);
 
 		//	Operator overload
-		Animal &	operator=(Animal const & rhs);
+		AAnimal &	operator=(AAnimal const & rhs);
 
 		//	Methodes
 		virtual void		makeSound(void) const;
@@ -36,5 +36,5 @@ class Animal
 	protected:
 
 		std::string	_type;
-		Animal(std::string type);
+		AAnimal(std::string type);
 };

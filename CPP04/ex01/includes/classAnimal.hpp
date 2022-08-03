@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   classCat.hpp                                       :+:      :+:    :+:   */
+/*   classAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 08:06:31 by aguay             #+#    #+#             */
+/*   Created: 2022/08/03 07:41:10 by aguay             #+#    #+#             */
 /*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "classAnimal.hpp"
+#include <iostream>
+#include <string.h>
 
-class Cat : public AAnimal
+class AAnimal
 {
 	public:
-
 		//	Constructor's
-		Cat(void);
-		Cat(Cat const & rhs);
-		
+		AAnimal(void);
+		AAnimal(AAnimal const & rhs);
+
 		//	Destructor's
-		virtual ~Cat(void);
+		virtual ~AAnimal(void);
 
 		//	Operator overload
-		Cat &	operator=(Cat const & rhs);
+		AAnimal &	operator=(AAnimal const & rhs);
 
-		//	Getter
-		virtual std::string	getType(void) const;
-		
 		//	Methodes
-		virtual void	makeSound(void) const;
+		virtual void		makeSound(void) const;
+		virtual std::string	getType(void) const;
+
+	protected:
+		std::string	_type;
 };
