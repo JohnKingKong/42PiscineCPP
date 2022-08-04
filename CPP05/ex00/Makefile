@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/08/04 08:50:08 by aguay            ###   ########.fr        #
+#    Updated: 2022/08/04 10:23:12 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,15 +56,17 @@ MAIN_DIR		= $(SRCS_DIR)main
 CLASS_DIR		= $(SRCS_DIR)class
 
 ## ----- FILES ----- ##
-SRCS_FILES		=						\
+SRCS_FILES		=							\
 
-MAIN_FILES		=						\
-					main.cpp			\
+MAIN_FILES		=							\
+					main.cpp				\
 
-CLASS_FILES		=						\
+CLASS_FILES		=							\
+					classBureaucrat.cpp		\
 
-HEADERS_FILES	=						\
-					main.hpp			\
+HEADERS_FILES	=							\
+					classBureaucrat.hpp		\
+
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
