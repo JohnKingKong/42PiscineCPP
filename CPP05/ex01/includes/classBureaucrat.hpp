@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 09:19:59 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/04 10:26:44 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/05 07:50:21 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <string.h>
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -25,9 +27,10 @@ class Bureaucrat
 
 		Bureaucrat &	operator=(Bureaucrat const & rhs);
 		std::string		getName(void) const;
-		size_t			getGrade(void) const;
+		int				getGrade(void) const;
 		void			incremGrade(void);
 		void			decremGrade(void);
+		void			signForm(Form & rhs);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -43,7 +46,7 @@ class Bureaucrat
 
 	private:
 		std::string	_name;
-		size_t		_grade;
+		int			_grade;
 		void		_checkGrade(int grade) const;
 };
 

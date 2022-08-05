@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 17:21:58 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/04 17:46:40 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/05 07:44:43 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <string.h>
 #include <iostream>
+#include "classBureaucrat.hpp"
 
 class Form
 {
@@ -27,6 +28,7 @@ class Form
 		bool		getSigned(void) const;
 		int			getGradeToSign(void) const;
 		int			getGradeToExecute(void) const;
+		void		beSigned(const Bureaucrat & rhs);
 
 		class	GradeToHighException : public std::exception
 		{
@@ -46,6 +48,8 @@ class Form
 		int					_gradeToSign;
 		int					_gradeToExecute;
 
+		void	checkGradeSign(Bureaucrat const & rhs);
+		void	checkGradeExec(Bureaucrat const & rhs);
 		Form(void);
 };
 

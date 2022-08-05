@@ -6,11 +6,12 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 09:20:11 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/04 10:36:25 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/05 07:53:16 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classBureaucrat.hpp"
+#include "classForm.hpp"
 
 Bureaucrat::Bureaucrat(void)
 {
@@ -23,16 +24,30 @@ Bureaucrat::Bureaucrat(void)
 	std::cout << "What grade do you want to give to this Bureaucrat instance?"
 		<< std::endl;
 	std::cin >> grade;
-	this->_checkGrade(grade);
-	this->_name = name;
-	this->_grade = grade;
+	try
+	{
+		this->_checkGrade(grade);
+		this->_name = name;
+		this->_grade = grade;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Can't create " << name << " because " << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
-	this->_checkGrade(grade);
-	this->_name = name;
-	this->_grade = grade;
+	try
+	{
+		this->_checkGrade(grade);
+		this->_name = name;
+		this->_grade = grade;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Can't create " << name << " because " << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & rhs)
@@ -57,14 +72,30 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs)
 
 void	Bureaucrat::incremGrade(void)
 {
-	this->_checkGrade(this->_grade + 1);
-	this->_grade++;
+	try
+	{
+		this->_checkGrade(this->_grade + 1);
+		this->_grade++;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Can't increment " << this->_name << " grade because "
+			<< e.what() << std::endl;
+	}
 }
 
 void	Bureaucrat::decremGrade(void)
 {
-	this->_checkGrade(this->_grade - 1);
-	this->_grade--;
+	try
+	{
+		this->_checkGrade(this->_grade - 1);
+		this->_grade--;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Can't decrement " << this->_name << " grade because "
+			<< e.what() << std::endl;
+	}
 }
 
 std::string	Bureaucrat::getName(void) const
@@ -72,9 +103,23 @@ std::string	Bureaucrat::getName(void) const
 	return (this->_name);
 }
 
-size_t	Bureaucrat::getGrade(void) const
+int	Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
+}
+
+void	Bureaucrat::signForm(Form & rhs)
+{
+	try 
+	{
+		rhs.beSigned(*this);
+		std::cout << this->_name << " signed " << rhs.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << this->_name << " couldn't sign " << rhs.getName()
+			<< " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream&	operator<<(std::ostream& COUT, const Bureaucrat& rhs)
