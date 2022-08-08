@@ -6,11 +6,12 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 09:20:11 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/05 11:00:03 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/05 11:02:47 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classBureaucrat.hpp"
+#include "classAForm.hpp"
 
 Bureaucrat::Bureaucrat(void)
 {
@@ -72,9 +73,21 @@ std::string	Bureaucrat::getName(void) const
 	return (this->_name);
 }
 
-size_t	Bureaucrat::getGrade(void) const
+int	Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
+}
+
+void	Bureaucrat::signForm(AForm & form)
+{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+}
+
+void	Bureaucrat::executeForm(const AForm& form) const
+{
+	form.execute(*this);
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
 
 std::ostream&	operator<<(std::ostream& COUT, const Bureaucrat& rhs)
