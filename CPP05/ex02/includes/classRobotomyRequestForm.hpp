@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 09:33:59 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/08 12:18:34 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/08 12:57:39 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "classAForm.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <unistd.h>
 
 class RobotomyRequestForm : public AForm
 {

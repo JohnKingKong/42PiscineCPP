@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/08/08 11:59:31 by aguay            ###   ########.fr        #
+#    Updated: 2022/08/08 12:51:54 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,12 +66,14 @@ CLASS_FILES		=									\
 					classAForm.cpp					\
 					classShrubberyCreationForm.cpp	\
 					classRobotomyRequestForm.cpp	\
+					classPresidentialPardonForm.cpp	\
 
 HEADERS_FILES	=									\
 					classBureaucrat.hpp				\
 					classAForm.hpp					\
 					classShrubberyCreationForm.hpp	\
 					classRobotomyRequestForm.hpp	\
+					classPresidentialPardonForm.hpp	\
 
 ## ----- ADDPREFIX TO FILES ----- ##
 

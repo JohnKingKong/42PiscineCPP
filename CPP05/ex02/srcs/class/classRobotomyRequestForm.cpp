@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 09:34:03 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/08 12:22:28 by aguay            ###   ########.fr       */
+/*   Updated: 2022/08/08 12:57:46 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	executeOrder66(std::string target)
 {
 	std::cout << "bzzzzzz cling cling cling" << std::endl;
 	srand(time(0));
+	sleep(1);
 	if (rand() % 2 == 0)
 		std::cout << target << "\033[32m a ete robotise avec success\033[0m" << std::endl;
 	else
