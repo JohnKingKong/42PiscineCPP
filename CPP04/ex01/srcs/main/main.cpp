@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 16:22:21 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,15 @@ int	main(void)
 			tableau[i] = new Dog;
 		else
 			tableau[i] = new Cat;
-		std::cout << "Creation " << i << " is a " << tableau[i]->getType() << std::endl;
+		std::cout << "\nCreation " << i << " is a " << tableau[i]->getType() << "\n"  << std::endl;
 	}
 	
 	std::cout << "\n\n\033[32mTest done, now let's test destructor's\033[0m\n" << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << tableau[i]->getType() << ": ";
+		std::cout << tableau[i]->getType() << ": \033[34m";
 		tableau[i]->makeSound();
+		std::cout << "\n\033[0m" << std::endl;
 		delete tableau[i];
 	}
 	return 0;

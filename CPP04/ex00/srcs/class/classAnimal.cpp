@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 07:42:52 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 13:53:24 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ AAnimal &	AAnimal::operator=(AAnimal const & rhs)
 
 void	AAnimal::makeSound(void) const
 {
-	std::cout <<"Animal sound" << std::endl;
+	std::cout << "Animal sound" << std::endl;
 }
 
 std::string	AAnimal::getType(void) const

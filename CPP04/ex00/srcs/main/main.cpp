@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 13:55:34 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,42 @@
 
 int	main(void)
 {
+
+	std::cout << "\n\033[31mBegin Test with virtual\033[0m" << std::endl;
 	//	Test with virtual
+	std::cout << "\nConstructor test's\n" << std::endl;
 	const AAnimal* meta = new AAnimal();
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
+
+	//	Test getType
+	std::cout << "\nGet type test's\n" << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << meta->getType() << std::endl;
-	i->makeSound(); //will output the cat sound!
+
+	//	Make sound test
+	std::cout << "\nmakesound test's\n" << std::endl;
+	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-	std::cout << "\n\033[31mEnd test with virtual\n\nBegin Test without virtual\n\n\033[0m" << std::endl;
-	
+	std::cout << "\n";
+
+	delete (i);
+	delete(j);
+	delete(meta);
+
 	//	Test without virtual
+	std::cout << "\n\033[31mEnd test with virtual\n\nBegin Test without virtual\n\033[0m" << std::endl;
+	
+
 	const WrongAnimal* Wmeta = new WrongAnimal();
 	const WrongAnimal* Wi = new WrongCat();
 	std::cout << Wi->getType() << " " << std::endl;
 	std::cout << Wmeta->getType() << std::endl;
 	Wi->makeSound(); //will output the cat sound!
 	Wmeta->makeSound();
+
 	delete Wmeta;
 	delete Wi;
 

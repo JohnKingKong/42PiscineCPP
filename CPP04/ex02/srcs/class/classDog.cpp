@@ -6,19 +6,19 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 08:58:34 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 14:56:10 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 16:24:20 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classDog.hpp"
 
-Dog::Dog(void) : Animal(), brain(new Brain())
+Dog::Dog(void) : AAnimal(), brain(new Brain())
 {
 	std::cout << "Default Dog constructor called" << std::endl;
 	this->_type = "Dog";
 }
 
-Dog::Dog(Dog const & rhs) : Animal(), brain(new Brain())
+Dog::Dog(Dog const & rhs) : AAnimal(), brain(new Brain())
 {
 	std::cout << "Copy Dog constructor called" << std::endl;
 	*this = rhs;
