@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:23:12 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/31 13:06:19 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 11:31:38 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class ClapTrap
 		ClapTrap &		operator=(ClapTrap const & rhs);
 
 		void			attack(const std::string& target);
+		void			attack(ClapTrap & rhs);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 

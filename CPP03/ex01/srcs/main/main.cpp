@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/31 13:16:43 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 11:18:12 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,25 @@ static void display_status(ScavTrap &ref)
 
 int	main(void)
 {
+	//	Constructor test's
+	std::cout << "\nConstructor test's\n" << std::endl;
 	ScavTrap	robot0("roberto");
 	ScavTrap	robot1;
 	ScavTrap	robot2(robot0);
+	ScavTrap	robot3 = robot2;
 
+	//	Guard test's
+	std::cout << "\nGuard test's\n" << std::endl;
 	robot0.guardGate();
 	robot1.guardGate();
 	robot2.guardGate();
+
+	std::cout << "\nPolymorphism attack test's\n" << std::endl;
+	//	Polymorphism attack test's
+	robot0.attack(robot2);
 	display_status(robot0);
-	robot0.takeDamage(12);
-	display_status(robot0);
-	display_status(robot1);
-	robot1.attack(robot0.getName());
-	display_status(robot1);
 	display_status(robot2);
-	robot2.beRepaired(300);
-	display_status(robot2);
+
+	std::cout << "\nDestructor test's\n" << std::endl;
 	return (0);
 }

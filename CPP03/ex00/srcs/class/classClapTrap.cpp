@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:23:42 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/31 12:29:26 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 11:37:24 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,31 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
-		std::cout << this->_name << " attack " << target;
-		std::cout << " for " << this->_attackDamage << " damage." << std::endl;
+		std::cout << ClapTrap::getName() << " attack " << target;
+		std::cout << " for " << ClapTrap::getAttackDamage() << " damage." << std::endl;
 		_energyPoint--;
 	}
 	else if (this->_energyPoint == 0)
-		std::cout << this->_name << " : zzzzzzzzzzz" << std::endl;
+		std::cout << ClapTrap::getName() << " : zzzzzzzzzzz" << std::endl;
 	else
-		std::cout << this->_name << " is dead." << std::endl;
+		std::cout <<ClapTrap::getName() << " is dead." << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPoint == 0)
 	{
-		std::cout << this->_name << " is dead." << std::endl;
+		std::cout << ClapTrap::getName() << " is dead." << std::endl;
 		return ;
 	}
 	if (amount >= this->_hitPoint)
 	{
-		std::cout << this->_name << " take " << amount << " damage! It's fatal." << std::endl;
+		std::cout << ClapTrap::getName() << " take " << amount << " damage! It's fatal." << std::endl;
 		this->_hitPoint = 0;
+		this->_energyPoint = 0;
 		return;
 	}
-	std::cout << this->_name << " take " << amount << " damage!" << std::endl;
+	std::cout << ClapTrap::getName() << " take " << amount << " damage!" << std::endl;
 	this->_hitPoint -= amount;
 }
 
@@ -90,13 +91,14 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
 		this->_hitPoint += amount;
-		std::cout << this->_name << " got repaired for " << amount << std::endl;
+		std::cout << ClapTrap::getName() << " got repaired for " << amount << std::endl;
 		_energyPoint--;
 	}
-	else if (this->_energyPoint == 0)
-		std::cout << this->_name << " : zzzzzzzzzzz" << std::endl;
-	else
+	else if (ClapTrap::getHitPoint() == 0)
 		std::cout << this->_name << " is dead." << std::endl;
+	else
+		std::cout << this->_name << " : zzzzzzzzzzz" << std::endl;
+		
 }
 
 //	Getter's

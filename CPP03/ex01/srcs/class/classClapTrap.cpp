@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:23:42 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/04 14:41:30 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 11:13:34 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,32 @@
 
 ClapTrap::ClapTrap(void) : _name("undefined"), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap defaul constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << "ClapTrap Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & rhs)
 {
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
+//	Destructor
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << "ClapTrap Destructor called" << std::endl;
+}
+
+//	Operator overload
+
+//	If the reference != this, change all variable's to rhs variable's
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 {
-	std::cout << "ClapTrap operator overload assignation called" << std::endl;
+	std::cout << "ClapTrap Operator overload assignation called" << std::endl;
 	if (&rhs != this)
 	{
 		_name = rhs.getName();
@@ -43,42 +52,54 @@ ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 	return (*this);
 }
 
-//	Destructor
+//	Object method's
 
-ClapTrap::~ClapTrap(void)
-{
-	std::cout << "ClapTrap destructor called" << std::endl;
-}
-
-//	Method's
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
-		std::cout << this->_name << " attack " << target;
-		std::cout << " for " << this->_attackDamage << " damage." << std::endl;
+		std::cout << ClapTrap::getName() << " attack " << target;
+		std::cout << " for " << ClapTrap::getAttackDamage() << " damage." << std::endl;
 		_energyPoint--;
 	}
 	else if (this->_energyPoint == 0)
-		std::cout << this->_name << " : zzzzzzzzzzz" << std::endl;
+		std::cout << ClapTrap::getName() << " : zzzzzzzzzzz" << std::endl;
 	else
-		std::cout << this->_name << " is dead." << std::endl;
+		std::cout <<ClapTrap::getName() << " is dead." << std::endl;
+}
+
+void	ClapTrap::attack(ClapTrap & rhs)
+{
+	if (&rhs == this)
+		std::cout << this->getName() << " has some hallucination and hit himself." << std::endl;
+	else if (this->_energyPoint > 0 && this->_hitPoint > 0)
+	{
+		std::cout << ClapTrap::getName() << " attack " << rhs.getName();
+		std::cout << " for " << ClapTrap::getAttackDamage() << " damage." << std::endl;
+		rhs.takeDamage(this->getAttackDamage());
+		_energyPoint--;
+	}
+	else if (this->_energyPoint == 0)
+		std::cout << ClapTrap::getName() << " : zzzzzzzzzzz" << std::endl;
+	else
+		std::cout <<ClapTrap::getName() << " is dead." << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPoint == 0)
 	{
-		std::cout << this->_name << " is dead." << std::endl;
+		std::cout << ClapTrap::getName() << " is dead." << std::endl;
 		return ;
 	}
 	if (amount >= this->_hitPoint)
 	{
-		std::cout << this->_name << " take " << amount << " damage! It's fatal." << std::endl;
+		std::cout << ClapTrap::getName() << " take " << amount << " damage! It's fatal." << std::endl;
 		this->_hitPoint = 0;
+		this->_energyPoint = 0;
 		return;
 	}
-	std::cout << this->_name << " take " << amount << " damage!" << std::endl;
+	std::cout << ClapTrap::getName() << " take " << amount << " damage!" << std::endl;
 	this->_hitPoint -= amount;
 }
 
@@ -87,13 +108,14 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (this->_energyPoint > 0 && this->_hitPoint > 0)
 	{
 		this->_hitPoint += amount;
-		std::cout << this->_name << " got repaired for " << amount << std::endl;
+		std::cout << ClapTrap::getName() << " got repaired for " << amount << std::endl;
 		_energyPoint--;
 	}
-	else if (this->_energyPoint == 0)
-		std::cout << this->_name << " : zzzzzzzzzzz" << std::endl;
-	else
+	else if (ClapTrap::getHitPoint() == 0)
 		std::cout << this->_name << " is dead." << std::endl;
+	else
+		std::cout << this->_name << " : zzzzzzzzzzz" << std::endl;
+		
 }
 
 //	Getter's

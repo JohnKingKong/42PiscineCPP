@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/07/31 13:13:42 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 10:55:07 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void display_status(ClapTrap &ref)
 {
 	std::cout << ref.getName() << " has " << ref.getHitPoint()
-		<< " hitpoint and has " << ref.getEnergyPoint() << " energy point."
+		<< " hitpoint (s) and has " << ref.getEnergyPoint() << " energy point (s)."
 		<< std::endl;
 	return;
 }
@@ -33,14 +33,19 @@ int	main(void)
 	display_status(robot);
 	robot.takeDamage(10);
 	robot.attack("bob");
+	display_status(robot);
 	robot.takeDamage(10);
 	robot.attack("bob");
+	display_status(robot);
 	robot.takeDamage(10);
 	robot.attack("bob");
+	display_status(robot);
 	robot.takeDamage(10);
 	robot.attack("bob");
+	display_status(robot);
 	robot.takeDamage(10);
 	robot.attack("bob");
+	display_status(robot);
 	robot.takeDamage(10);
 	robot.attack("bob");
 	display_status(robot);

@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 07:38:25 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/01 08:02:03 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/28 11:37:37 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::FragTrap(FragTrap const & rhs) : ClapTrap(rhs.getName())
 {
 	std::cout << "FragTrap copy contructor called" << std::endl;
-	this->_attackDamage = rhs.getAttackDamage();
-	this->_hitPoint = rhs.getHitPoint();
-	this->_energyPoint = rhs.getEnergyPoint();
+	*this = rhs;
 }
 
 //	Destructor's
