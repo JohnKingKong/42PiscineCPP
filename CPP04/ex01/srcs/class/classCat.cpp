@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 08:16:45 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/29 09:00:21 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ Cat &	Cat::operator=(Cat const & rhs)
 {
 	std::cout << "Cat operator overload = called" << std::endl;
 	if (this != &rhs)
-	{
-		this->_type = rhs._type;
 		this->brain = rhs.brain;
-	}
 	return (*this);
 }
 

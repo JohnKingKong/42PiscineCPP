@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 08:58:34 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:45 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/29 09:00:27 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ Dog &	Dog::operator=(Dog const & rhs)
 {
 	std::cout << "Dog operator overload = called" << std::endl;
 	if (this != & rhs)
-	{
 		this->_type = rhs._type;
-		this->brain = rhs.brain;
-	}
 	return (*this);
 }
 

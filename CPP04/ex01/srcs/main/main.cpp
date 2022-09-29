@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/09/28 16:22:21 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/29 09:02:48 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,15 @@ int	main(void)
 		std::cout << "\n\033[0m" << std::endl;
 		delete tableau[i];
 	}
+
+	std::cout << "\n\nConstructor test classe profonde" << std::endl;
+
+	Dog	chien;
+
+	std::cout << std::endl;
+	Dog	chien2 = chien;
+	
+	std::cout << "\n\nDestructor proof\n" << std::endl;
+	
 	return 0;
 }
