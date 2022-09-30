@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 10:29:14 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/30 14:03:58 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/30 13:45:46 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,16 @@ Converter & Converter::operator=(Converter const & rhs)
 char	Converter::toChar(void) const
 {
 	int	c = 0;
-	
+
 	try
 	{
-		c = std::stoi (this->_strValue);
+		c = this->toInt();
+		if (c < 32 || c > 126)
+		{
+			throw()
+			std::cout << "Not displayable \033[31mErr: \033[0m1";
+			return (1);
+		}
 		return (c);
 	}
 	catch (const std::exception &e)

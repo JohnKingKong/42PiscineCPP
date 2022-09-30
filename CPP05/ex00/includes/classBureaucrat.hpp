@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 09:19:59 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/04 10:26:44 by aguay            ###   ########.fr       */
+/*   Updated: 2022/09/30 14:28:27 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Bureaucrat
 		};
 
 	private:
-		std::string	_name;
+		const std::string	_name;
 		size_t		_grade;
 		void		_checkGrade(int grade) const;
 };

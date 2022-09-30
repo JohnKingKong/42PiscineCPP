@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/08/08 12:51:54 by aguay            ###   ########.fr        #
+#    Updated: 2022/09/30 12:59:23 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@
 NAME 			= ex02
 
 ## ----- COMPILER AND FLAGS ----- ##
-CC				= g++
+CC				= c++
 
 CFLAGS			= -Wall -Wextra -Werror -std=c++98
 
