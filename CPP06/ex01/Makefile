@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/10/03 13:15:06 by aguay            ###   ########.fr        #
+#    Updated: 2022/10/03 15:56:25 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= convert
+NAME 			= ex01
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= c++

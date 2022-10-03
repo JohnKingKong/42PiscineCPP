@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/09/28 11:18:12 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/03 15:41:39 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(void)
 	robot2.guardGate();
 
 	std::cout << "\nPolymorphism attack test's\n" << std::endl;
+
 	//	Polymorphism attack test's
 	robot0.attack(robot2);
 	display_status(robot0);
