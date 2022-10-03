@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 17:21:58 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/05 08:09:45 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/03 09:28:10 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 #include <iostream>
 #include "classBureaucrat.hpp"
 
-class Form
+class AForm
 {
 	public:
-		Form(std::string name, int GradeToSign, int GradeToExecute);
-		Form(Form const & rhs);
-		~Form(void);
+    	AForm(void);
+		AForm(std::string name, int GradeToSign, int GradeToExecute);
+		AForm(AForm const & rhs);
+		~AForm(void);
 
-		Form &		operator=(Form const & rhs);
+		AForm &		operator=(AForm const & rhs);
 		std::string	getName(void) const;
 		bool		getSigned(void) const;
 		int			getGradeToSign(void) const;
@@ -45,12 +46,12 @@ class Form
 	private:
 		const std::string	_name;
 		bool				_signed;
-		int					_gradeToSign;
-		int					_gradeToExecute;
+		const int			_gradeToSign;
+		const int			_gradeToExecute;
 
+		int		checkGrade(int	grade);
 		void	checkGradeSign(Bureaucrat const & rhs);
 		void	checkGradeExec(Bureaucrat const & rhs);
-		Form(void);
 };
 
-std::ostream&	operator<<(std::ostream& COUT, const Form& rhs);
+std::ostream&	operator<<(std::ostream& COUT, const AForm& rhs);

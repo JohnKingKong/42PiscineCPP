@@ -6,28 +6,14 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 09:20:11 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/05 11:01:34 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/03 09:28:10 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classBureaucrat.hpp"
 #include "classForm.hpp"
 
-Bureaucrat::Bureaucrat(void)
-{
-	std::string	name;
-	int			grade;
-
-	std::cout << "What name do you want to give to this Bureaucrat instance?"
-		<< std::endl;
-	std::getline(std::cin, name);
-	std::cout << "What grade do you want to give to this Bureaucrat instance?"
-		<< std::endl;
-	std::cin >> grade;
-	this->_checkGrade(grade);
-	this->_name = name;
-	this->_grade = grade;
-}
+Bureaucrat::Bureaucrat(void) : _name("Undifined Bureaucrat"), _grade(150){};
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
@@ -78,8 +64,14 @@ int	Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-void	Bureaucrat::signForm(Form & rhs)
+void	Bureaucrat::signForm(AForm & rhs)
 {
+    if (rhs.getSigned() == 1)
+    {
+        std::cout << rhs.getName() << " couldn’t sign " << this->getName()
+            << " because it's already signed." << std::endl;
+        return ;
+    }
 	rhs.beSigned(*this);
 	std::cout << this->_name << " signed " << rhs.getName() << std::endl;
 }

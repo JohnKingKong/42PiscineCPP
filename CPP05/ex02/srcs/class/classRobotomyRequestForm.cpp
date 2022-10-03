@@ -6,17 +6,17 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 09:34:03 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/08 12:57:46 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/03 10:28:16 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classRobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 145, 137){}
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45){}
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & rhs) : AForm("RobotomyRequestForm", 145, 137){*this = rhs;}
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & rhs) : AForm("RobotomyRequestForm", 72, 45){*this = rhs;}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 145, 137), _target(target){}
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target){}
 
 RobotomyRequestForm::~RobotomyRequestForm(void){}
 
@@ -43,6 +43,9 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 	if (this->getSigned() == false)
 		throw (RobotomyRequestForm::FormNotSignedException());
 	if (this->getGradeToExecute() < executor.getGrade())
-		throw (RobotomyRequestForm::GradeTooLowException());
+    {
+         std::cout << this->getName() << " couldn't execute bacause : ";
+         throw (RobotomyRequestForm::GradeTooLowException());
+    }
 	executeOrder66(this->_target);
 }
