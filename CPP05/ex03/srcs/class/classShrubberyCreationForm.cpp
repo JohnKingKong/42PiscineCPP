@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 08:14:49 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/08 12:22:49 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/03 10:24:05 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 	if (this->getSigned() == false)
 		throw (ShrubberyCreationForm::FormNotSignedException());
 	if (this->getGradeToExecute() < executor.getGrade())
-		throw (ShrubberyCreationForm::GradeTooLowException());
+    {
+        std::cout << this->getName() << " couldn't execute bacause : ";
+        throw (ShrubberyCreationForm::GradeTooLowException());
+    }
+		
 	executeOrder66(this->_target + "_shru");
 }

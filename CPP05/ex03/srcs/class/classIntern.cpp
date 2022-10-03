@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 13:18:13 by aguay             #+#    #+#             */
-/*   Updated: 2022/08/08 13:48:27 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/03 13:04:02 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static AForm	*makeRobotomy(std::string formName, std::string target)
 
 AForm	*Intern::MakeForm(std::string formName, std::string target)
 {
-	if (formName.find("hrubbery", 0) != formName.npos)
+	if (formName.find("hrub", 0) != formName.npos)
 		return (makeShruberry(formName, target));
 
 	if (formName.find("obot", 0) != formName.npos)
