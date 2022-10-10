@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ft_generate.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/10/10 13:35:32 by aguay            ###   ########.fr       */
+/*   Created: 2022/10/10 13:57:09 by aguay             #+#    #+#             */
+/*   Updated: 2022/10/10 14:30:54 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
+#include <sys/time.h>
 #include <iostream>
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-int	main(void)
+Base *generate(void)
 {
-	Data i;
+    Base *x;
+    struct timeval  tp;
+    gettimeofday(&tp, NULL);
+
+    if (tp.tv_usec < 333333)
+        x = new A;
+    else if (tp.tv_usec > 666666)
+        x = new C;
+    else
+        x = new B;
     
-    std::cout << "Adress of object data = " << &i << std::endl;
-    std::cout << "Address of object data through serialize = " << serialize(&i) << std::endl;
-    std::cout << "Address of object data through serialize then through deserialise = " << deserialize(serialize(&i)) << std::endl;;
-    
-    std:: cout << "In other word's -> " << &i << " = " << deserialize(serialize(&i)) << std::endl;
-	return (0);
+    return (x);
 }
+

@@ -6,7 +6,7 @@
 #    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/10/10 13:30:45 by aguay            ###   ########.fr        #
+#    Updated: 2022/10/10 14:05:34 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,15 +60,21 @@ SRCS_FILES		=						\
 
 MAIN_FILES		=						\
 					main.cpp			\
-					ft_serialize.cpp	\
-					ft_deserialize.cpp	\
+					ft_generate.cpp		\
 
 CLASS_FILES		=						\
-					classData.cpp		\
+					Base.cpp			\
+					A.cpp				\
+					B.cpp				\
+					C.cpp				\
+					ft_identify.cpp		\
 
 HEADERS_FILES	=						\
 					main.hpp			\
-					classData.hpp		\
+					Base.hpp			\
+					A.hpp				\
+					B.hpp				\
+					C.hpp				\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
