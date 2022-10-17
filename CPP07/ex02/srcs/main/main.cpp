@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/10/14 11:18:46 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/17 10:58:49 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,10 @@ int	main(void)
             a.set_array(1, "ca");
             a.set_array(2, "va");
             Array<std::string> b = a;
+            std::cout << "yo" << std::endl;
             std::cout << b.get_array(0) << std::endl;
-            std::cout << b.get_array(0) << std::endl;
-            std::cout << b.get_array(0) << std::endl;
+            std::cout << b.get_array(1) << std::endl;
+            std::cout << b.get_array(2) << std::endl;
         }
         catch (const std::exception& e)
         {

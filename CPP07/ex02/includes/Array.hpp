@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 07:51:26 by aguay             #+#    #+#             */
-/*   Updated: 2022/10/14 11:31:27 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/17 10:58:39 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,26 @@ class Array
     public:
 
         //  Constructor's
-        Array<T>(void) : _size(0){_array = new T[0];}
+        Array(void) : _size(0){_array = new T[0];}
 
-        Array<T>(unsigned int i) : _size(i){_array = new T[i];}
+        Array(unsigned int i) : _size(i){_array = new T[i];}
 
-        Array<T>(Array<T> const & rhs)
+        Array(Array const & rhs) : _array(NULL)
         {
-            _size = rhs.get_size();
-            _array = new T[rhs.get_size()];
             *this = rhs;
         }
 
         //  Destructor
-        ~Array<T>(void){delete [] _array;}
+        ~Array(void){delete [] _array;}
 
         //  Operation overload
-        Array<T> const  operator=(Array const & rhs)
+        Array& operator=(Array const & rhs)
         {
-            if (this != &rhs)
-            {
-                for (unsigned int i = 0; i < _size; i++)
-                    set_array(i, rhs.get_array(i));
-            }
+            delete[] _array;
+            this->_array = new T [rhs.get_size()];
+            _size = rhs.get_size();
+            for (unsigned int i = 0; i < _size; i++)
+                this->set_array(i, rhs.get_array(i));
             return (*this);
         }
         
