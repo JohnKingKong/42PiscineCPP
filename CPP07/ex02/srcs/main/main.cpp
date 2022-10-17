@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:20:00 by aguay             #+#    #+#             */
-/*   Updated: 2022/10/17 10:58:49 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/17 11:47:16 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,9 @@ int	main(void)
     {
         try
         {
-            b.set_array(3, 12.954);
-        }
-        catch (const std::exception& e)
-        {
-            std::cerr << "Error : " << e.what() << std::endl;
-        }
-        
-        try
-        {
-            std::cout << b.get_array(3) << std::endl;
-            b.set_array(1, 13612345.1234);
-            std::cout << b.get_array(1) << std::endl;
-            std::cout << b.get_array(2) << std::endl;
-        }
-        catch (const std::exception& e)
-        {
-            std::cerr << "Error : " << e.what() << std::endl;
-        }
-
-        try
-        {
-            b.set_array(15, 13256);
+            b[0] = 12.3f;
+            std::cout << b[0] << std::endl;
+            b[13] = 5.4f;
         }
         catch (const std::exception& e)
         {
@@ -56,11 +37,10 @@ int	main(void)
         try
         {
             Array<std::string>  str(4);
-            str.set_array(0, "yo ca va?");
-            std::cout << str.get_array(0) << std::endl;
-            std::cout << str.get_array(1) << std::endl;
-            std::cout << str.get_array(2) << std::endl;
-            str.set_array(1000, "bob");
+            str[0] = "yo ca va ?";
+            str[1] = "\n yeah mon garssss top shape";
+            std::cout << str[0] << str[1] << std::endl;
+            str[5] = "allo";
         }
         catch (const std::exception& e)
         {
@@ -73,14 +53,11 @@ int	main(void)
         try
         {
             Array<std::string> a(3);
-            a.set_array(0, "allo");
-            a.set_array(1, "ca");
-            a.set_array(2, "va");
+            a[0] = "salut ca va";
+            a[2] = "\nTom : oui toi ?";
+            std::cout << a[0] << a[1] << a[2] << std::endl;
             Array<std::string> b = a;
-            std::cout << "yo" << std::endl;
-            std::cout << b.get_array(0) << std::endl;
-            std::cout << b.get_array(1) << std::endl;
-            std::cout << b.get_array(2) << std::endl;
+            std::cout << b[0] << b[1] << b[2] << std::endl;
         }
         catch (const std::exception& e)
         {

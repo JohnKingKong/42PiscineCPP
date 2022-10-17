@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 07:51:26 by aguay             #+#    #+#             */
-/*   Updated: 2022/10/17 10:58:39 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/17 11:39:35 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,19 @@ class Array
                 this->set_array(i, rhs.get_array(i));
             return (*this);
         }
+
+        T& operator[](std::size_t x)
+        {
+            if (_size < static_cast<unsigned int>(x))
+                throw OutOfBoundIndexException();
+
+            return (_array[x]);
+        }
         
         //  Methodes
         void    set_array(int index, T const value)
         {
-            if (_size < static_cast<unsigned int>(index))
-                throw OutOfBoundIndexException();
+
             _array[index] = value;
         }
         
