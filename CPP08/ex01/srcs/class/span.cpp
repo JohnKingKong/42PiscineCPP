@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:37:11 by aguay             #+#    #+#             */
-/*   Updated: 2022/10/18 12:04:27 by aguay            ###   ########.fr       */
+/*   Updated: 2022/10/19 15:51:37 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,16 @@ void    Span::addnumber(int value)
 unsigned int Span::shortestSpan(void) const
 {
     int                     petit = 99999999;
-    std::set<int>::iterator ite = _set.begin();
     int                     temp;
 
-    for (int i = 0; i < _size; i++)
+    for (std::set<int>::iterator ite = _set.begin(); ite != _set.end(); ite++)
     {
-        temp = *ite++;
-        if (std::abs(std::abs(*ite) - std::abs(temp)) < petit)
-            petit = std::abs(std::abs(*ite) - std::abs(temp));
+        if (ite != _set.begin())
+        { 
+            if (std::abs(*ite - temp) < petit)
+                petit = std::abs(*ite - temp);
+        }
+        temp = *ite;
     }
     return (petit);
 }
@@ -57,14 +59,16 @@ unsigned int Span::shortestSpan(void) const
 unsigned int Span::longestSpan(void) const
 {
     int                     longest = 0;
-    std::set<int>::iterator ite = _set.begin();
     int                     temp;
 
-    for (int i = 0; i < _size; i++)
+    for (std::set<int>::iterator ite = _set.begin(); ite != _set.end(); ite++)
     {
-        temp = *ite++;
-        if (std::abs(*ite) - std::abs(temp) > longest)
-            longest = std::abs(*ite) - std::abs(temp);
+        if (ite != _set.begin())
+        { 
+            if (std::abs(*ite - temp) > longest)
+                longest = std::abs(*ite - temp);
+        }
+        temp = *ite;
     }
     return (longest);
 }
